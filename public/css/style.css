@@ -1,24 +1,24 @@
 .main-section {
 	font-family: 'Montserrat', sans-serif;
 	height: auto;
-	/*width: 50%;*/
-	background-color: #4d375d;
-	color: #ffe227;
+	color: #4d375d;
 	padding: 2rem 2rem 2rem;
-	width: 550px;
 	margin-top: 2rem;
 }
 
-.box-design {
+/*.box-design {
 	box-shadow: 0px 0px 3px 0px #121013;
 	border-radius: 10px;
 }
-
+*/
 .image {
-	color: white;
+	color: black;
 }
 
 .main-heading {
+/*	box-shadow: 0px 0px 3px 0px #121013;
+	border-radius: 10px;
+	background-color: #4d375d;*/
 	font-family: 'Hachi Maru Pop', cursive;
 	font-size: 3.5rem;
 	font-weight: bold;
