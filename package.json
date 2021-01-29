@@ -1,0 +1,19 @@
+{
+  "name": "authentication-login",
+  "version": "1.0.0",
+  "description": "Login and Registration Page with Encrypted Authentication",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhiljerry29/authentication-login.git"
+  },
+  "author": "Nikhil Gupta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nikhiljerry29/authentication-login/issues"
+  },
+  "homepage": "https://github.com/nikhiljerry29/authentication-login#readme"
+}
