@@ -1,0 +1,32 @@
+<section>
+	<div class="container main-section box-design">
+		<div class="row">
+
+			<div class="col align-self-center fa-6x text-center">
+				<i class="fas fa-glass-cheers image"></i>
+				<h1 class="main-heading">Register!</h1>
+				<form oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="First name" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Last name" required>
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" id="inputEmail" placeholder="Email address" required>
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" id="inputNewPassword" placeholder="New Password" required name=up>
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" id="confirmNewPassword" placeholder="Confirm New Password" required name=up2>
+					</div>
+					<button type="submit" class="btn btn-block"><i class="far fa-smile"></i> Yayy! Sign Up.</button>
+					<a href="index.html" class="btn btn-dark btn-block active" role="button" aria-pressed="true"><i class="far fa-thumbs-up"></i> Already Signed Up.</a>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+	
+</section>

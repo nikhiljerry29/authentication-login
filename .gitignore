@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+# Sublime Workspace project
+authentication.sublime-workspace
+authentication.sublime-project
