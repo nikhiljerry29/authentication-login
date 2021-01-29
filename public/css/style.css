@@ -1,12 +1,12 @@
 .main-section {
 	font-family: 'Montserrat', sans-serif;
 	height: auto;
-	width: 50%;
+	/*width: 50%;*/
 	background-color: #4d375d;
 	color: #ffe227;
-	padding: 3% 5% 5%;
-	max-width: 550px;
-	margin-top: 5%;
+	padding: 2rem 2rem 2rem;
+	width: 550px;
+	margin-top: 2rem;
 }
 
 .box-design {
@@ -22,11 +22,11 @@
 	font-family: 'Hachi Maru Pop', cursive;
 	font-size: 3.5rem;
 	font-weight: bold;
-	padding: 8% 0%;
+	padding: 2rem 0;
 }
 
 .form-group {
-	margin: 8% 0;
+	margin: 2rem 0;
 }
 
 .btn {
