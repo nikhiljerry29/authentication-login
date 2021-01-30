@@ -24,7 +24,6 @@ app.get("/register", (req,res)  => {
 	res.render("register")
 })
 
-
 const port = 8080;
 app.listen(8080, () => {
 	console.log("Server Started on port :: " + port)
