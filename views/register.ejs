@@ -1,10 +1,10 @@
-<%- include("header") -%>
+<%- include("partials/header") -%>
 <section>
 	<div class="container main-section">
 		<div class="row">
 
 			<div class="col align-self-center fa-6x text-center">
-				<i class="fas fa-glass-cheers image"></i>
+				<a href="/home"><i class="fas fa-glass-cheers image"></i></a>
 				<h1 class="main-heading">Register!</h1>
 				<form oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
 					<div class="form-group">
@@ -31,4 +31,4 @@
 	</div>
 	
 </section>
-<%- include("footer") -%>
+<%- include("partials/footer") -%>
