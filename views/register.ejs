@@ -6,18 +6,18 @@
 			<div class="col align-self-center fa-6x text-center">
 				<a href="/home"><i class="fas fa-glass-cheers image"></i></a>
 				<h1 class="main-heading">Register!</h1>
-				<form oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
+				<form action="/register" method="POST" oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="First name" required>
+						<input type="text" class="form-control"  name="firstName" placeholder="First name" required>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Last name" required>
+						<input type="text" class="form-control" name="lastName" placeholder="Last name" required>
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control" id="inputEmail" placeholder="Email address" required>
+						<input type="email" class="form-control" name="emailAddress" id="inputEmail" placeholder="Email address" required>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" id="inputNewPassword" placeholder="New Password" required name=up>
+						<input type="password" class="form-control" name="password" id="inputNewPassword" placeholder="New Password" required name=up>
 					</div>
 					<div class="form-group">
 						<input type="password" class="form-control" id="confirmNewPassword" placeholder="Confirm New Password" required name=up2>
