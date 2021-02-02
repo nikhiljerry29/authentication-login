@@ -1,5 +1,3 @@
-<%- include("partials/header") -%>
-
 <section id="loginPage">
 	<div class="container main-section">
 		<div class="row">
@@ -7,15 +5,16 @@
 			<div class="col align-self-center text-center">
 				<a href="/home"><i class="fas fa-user-circle fa-6x image"></i></a>
 				<h1 class="main-heading">Login!</h1>
-				<form action="/login" method="POST">
+				<form action="/users/login" method="POST">
 					<div class="form-group">
 						<input type="email" class="form-control" id="inputEmail" placeholder="Email address" required name="emailAddress">
 					</div>
 					<div class="form-group">
 						<input type="password" class="form-control" id="inputPassword" placeholder="Password" required name="password">
 					</div>
+					<%- include ("./partials/messages") -%>
 					<button type="submit" class="btn btn-block"><i class="fas fa-clipboard-check"></i> Sign In</button>
-					<a href="/register" class="btn btn-dark btn-block active" role="button" aria-pressed="true"><i class="fas fa-user-plus"></i> Don't have an account!! Click Here.</a>
+					<a href="/users/register" class="btn btn-dark btn-block active" role="button" aria-pressed="true"><i class="fas fa-user-plus"></i> Don't have an account!! Click Here.</a>
 				</form>
 			</div>
 
@@ -23,5 +22,3 @@
 	</div>
 
 </section>
-
-<%- include("partials/footer") -%>

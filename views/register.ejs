@@ -1,12 +1,12 @@
-<%- include("partials/header") -%>
 <section>
 	<div class="container main-section">
+		<%- include ("./partials/messages") -%>
 		<div class="row">
 
 			<div class="col align-self-center fa-6x text-center">
 				<a href="/home"><i class="fas fa-glass-cheers image"></i></a>
 				<h1 class="main-heading">Register!</h1>
-				<form action="/register" method="POST" oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
+				<form action="/users/register" method="POST" oninput='password.setCustomValidity(password2.value != password.value ? "Passwords do not match." : "")'>
 					<div class="form-group">
 						<input type="text" class="form-control"  name="firstName" placeholder="First name" required>
 					</div>
@@ -17,13 +17,13 @@
 						<input type="email" class="form-control" name="emailAddress" id="inputEmail" placeholder="Email address" required>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" name="password" id="inputNewPassword" placeholder="New Password" required name=up>
+						<input type="password" class="form-control" name="password" id="inputNewPassword" placeholder="New Password" required>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" id="confirmNewPassword" placeholder="Confirm New Password" required name=up2>
+						<input type="password" class="form-control" id="confirmNewPassword" placeholder="Confirm New Password" required name=password2>
 					</div>
 					<button type="submit" class="btn btn-block"><i class="far fa-smile"></i> Yayy! Sign Up.</button>
-					<a href="/login" class="btn btn-dark btn-block active" role="button" aria-pressed="true"><i class="far fa-thumbs-up"></i> Already Signed Up.</a>
+					<a href="/users/login" class="btn btn-dark btn-block active" role="button" aria-pressed="true"><i class="far fa-thumbs-up"></i> Already Signed Up.</a>
 				</form>
 			</div>
 			
@@ -31,4 +31,3 @@
 	</div>
 	
 </section>
-<%- include("partials/footer") -%>

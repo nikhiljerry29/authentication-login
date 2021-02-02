@@ -1,80 +1,49 @@
 require('dotenv').config()
 const express = require('express')
-const bodyParser = require('body-parser')
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const saltRounds = Number(process.env.SALTROUNDS);
+const expressLayouts = require('express-ejs-layouts')
+const mongoose = require('mongoose')
+const flash = require('connect-flash')
+const session = require('express-session')
 
-const app = express();
-app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+const passport = require('passport')
+require('./config/passport')(passport)
 
-const mongooseUrl = process.env.MONGOURI;
-mongoose.connect(mongooseUrl, { useNewUrlParser: true , useUnifiedTopology: true });
+// Express & View Engines
+const app = express()
+app.use(expressLayouts)
+app.set("view engine", "ejs")
+app.use(express.urlencoded({extended: true}))
+app.use(express.static("public"))
 
-const userSchema = new mongoose.Schema({
-	firstName: String,
-	lastName: String,
-	emailAddress: String,
-	password: String
+// Express Session
+app.use(session({
+  secret: process.env.SECRET,
+  resave: true,
+  saveUninitialized: true,
+}))
+
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(flash());
+
+// Global Vars
+app.use((req, res, next) => {
+	res.locals.success_msg = req.flash('success_msg')
+	res.locals.error_msg = req.flash('error_msg')
+	res.locals.error = req.flash('error')
+	next()
 })
 
-const Users = new mongoose.model("user", userSchema);
+mongoose.connect(process.env.MONGOURI, { useNewUrlParser: true , useUnifiedTopology: true })
 
-app.get("/", (req, res) => {
-	res.redirect("/home")
-})
-
-app.get("/home", (req,res)  => {
-	res.render("home")
-})
-
-app.get("/login", (req,res)  => {
-	res.render("login")
-})
-
-app.post("/login", (req,res) => {
-	const username = req.body.emailAddress
-	const password = req.body.password
-	Users.findOne({emailAddress: username}, (err, foundUser) => {
-		if(foundUser){
-			bcrypt.compare(password, foundUser.password, function(err, result) {
-				if(result === true)
-					res.render("successfulLogin",{fullName: foundUser.firstName + " " + foundUser.lastName})
-			})
-		}
-		else
-			res.render("unsuccessfulLogin")
-	})
-})
-
-app.get("/register", (req,res)  => {
-	res.render("register")
-})
-
-app.post("/register", (req,res) => {
-	bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-
-		const newUser = new Users ({
-			firstName: req.body.firstName,
-			lastName: req.body.lastName,
-			emailAddress: req.body.emailAddress,
-			password: hash
-		})
-
-		newUser.save((err) => {
-			if (err)
-				console.log(err)
-			else
-				res.redirect('/login')
-		})
+// Routes
+app.use('/', require('./routes/index'))
+app.use('/users', require('./routes/users'))
 
 
-	});
-})
-
-const port = 8080;
+const port = 8080
 app.listen(8080, () => {
 	console.log("Server Started on port :: " + port)
 })
